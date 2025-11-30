@@ -100,3 +100,40 @@ export interface DashboardStats {
   calls_filtered: number;
   errors: number;
 }
+
+export interface Company {
+  id: string;
+  name: string;
+  email: string;
+  siret?: string;
+  vat_number?: string;
+  address?: string;
+  phone?: string;
+  contact_name?: string;
+  notes?: string;
+  status: 'active' | 'inactive' | 'pending_verification';
+  verification_code?: string;
+  subscription_plan: 'basic' | 'pro';
+  created_at: string;
+  settings: Settings;
+  credit_history: CreditTransaction[];
+}
+
+export interface CreditTransaction {
+  id: string;
+  date: string;
+  amount_credits: number;
+  amount_paid: number;
+  reference: string;
+  type: 'credit' | 'debit' | 'adjustment';
+}
+
+export interface CompanyStats extends DashboardStats {
+  company_id: string;
+  company_name: string;
+  subscription_plan: 'basic' | 'pro';
+  sms_credits: number;
+  use_custom_provider: boolean;
+  last_activity: string | null;
+  email: string;
+}

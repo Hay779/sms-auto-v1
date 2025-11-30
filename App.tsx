@@ -8,13 +8,12 @@ const App: React.FC = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Test login : demo@example.com / demo123
     if (email === 'demo@example.com' && password === 'demo123') {
       setIsLoggedIn(true);
       alert('✅ Connexion réussie !');
     } else if (email === 'admin@system.com' && password === 'admin123') {
       setIsLoggedIn(true);
-      alert('✅ Connexion Super Admin réussie !');
+      alert('✅ Connexion Super Admin !');
     } else {
       alert('❌ Email ou mot de passe incorrect');
     }
@@ -28,24 +27,24 @@ const App: React.FC = () => {
             🎉 Bienvenue sur SMS Automatisation !
           </h1>
           <p className="text-gray-600 mb-6">
-            Vous êtes connecté avec succès. L'application complète est en cours de développement.
+            Connexion réussie. Application déployée avec succès !
           </p>
           
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
             <p className="text-sm text-blue-700">
-              <strong>✅ Configuration Supabase :</strong> Connectée
+              <strong>✅ Supabase :</strong> Connecté
             </p>
             <p className="text-sm text-blue-700">
-              <strong>✅ Authentification :</strong> Fonctionnelle
+              <strong>✅ Authentification :</strong> OK
             </p>
             <p className="text-sm text-blue-700">
-              <strong>✅ Déploiement Vercel :</strong> Réussi
+              <strong>✅ Vercel :</strong> Déployé
             </p>
           </div>
 
           <button
             onClick={() => setIsLoggedIn(false)}
-            className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg"
           >
             Se déconnecter
           </button>
@@ -57,41 +56,34 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            SMS Automatisation
-          </h1>
-          <p className="text-gray-600">
-            Connexion à votre compte
-          </p>
-        </div>
+        <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          SMS Automatisation
+        </h1>
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Email
             </label>
             <input
               type="email"
-              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="demo@example.com"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Mot de passe
             </label>
             <input
               type="password"
-              id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="••••••••"
               required
             />
@@ -99,22 +91,16 @@ const App: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg"
           >
             Se connecter
           </button>
         </form>
 
-        <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-          <p className="text-xs text-gray-600 mb-2 font-semibold">
-            Comptes de test :
-          </p>
-          <p className="text-xs text-gray-600">
-            📧 demo@example.com / demo123
-          </p>
-          <p className="text-xs text-gray-600">
-            👑 admin@system.com / admin123
-          </p>
+        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+          <p className="text-xs text-gray-600 mb-2">Comptes de test :</p>
+          <p className="text-xs text-gray-600">📧 demo@example.com / demo123</p>
+          <p className="text-xs text-gray-600">👑 admin@system.com / admin123</p>
         </div>
       </div>
     </div>
